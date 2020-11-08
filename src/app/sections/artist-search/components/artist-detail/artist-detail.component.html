@@ -1,0 +1,22 @@
+<div *ngIf="isArtist">
+    <div class="card border-light" *ngIf="artist$ | async as artist; else loading"> 
+        <div class="card-header bg-primary text-light font-weight-bold">
+            Artist information
+        </div>
+        <div class="card-body row">
+            <div class="col-md-6">
+                <img src="{{artist.strArtistFanart}}">
+            </div>
+            <div class="col-md-6">
+                <span><h3>Name:</h3> {{artist.strArtist}}</span>
+                <span><h3>Genre:</h3> {{artist.strGender}}</span>
+                <span><h3>Bio:</h3> {{artist.strBiographyEN}}</span>
+            </div>
+        </div>
+    </div>
+    <ng-template #loading>
+        <div class="card-header bg-primary text-light font-weight-bold">
+            An error occurs
+        </div>
+    </ng-template>
+</div>

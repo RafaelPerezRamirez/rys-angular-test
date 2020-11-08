@@ -1,0 +1,40 @@
+<div class="bg-info">
+    <div class="container">
+        <div class="row">
+            <form 
+                [formGroup]="formArtist"
+                class="col card text-white bg-transparent mb-5 pt-5 pb-2">
+                <fieldset>
+                    <legend class="text-center">Search an artist...</legend>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Artist</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="artist"
+                                    placeholder="Type an artist"
+                                    formControlName="artist"
+                                />
+                                <span *ngIf="
+                                    this.formArtist.controls.artist.errors !== null &&
+                                    artist.invalid && artist.touched
+                                ">
+                                    Artist name is required example "coldplay"
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        [disabled]="formArtist.invalid"
+                        class="btn btn-primary float-right col-md-2"
+                        (click)="searchArtist()"
+                    >
+                        Search
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
