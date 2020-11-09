@@ -12,6 +12,7 @@ export class SongListComponent implements OnInit {
   artistName: string = this._Activatedroute.snapshot.paramMap.get('artistName');
   baseUrl: string = 'https://www.theaudiodb.com/api/v1/json/1/searchalbum.php?s='
   albumList: AlbumList;
+  isError: boolean = false;
 
   constructor(
     private _Activatedroute:ActivatedRoute,
@@ -22,8 +23,12 @@ export class SongListComponent implements OnInit {
     this.getAlbums(this.artistName);
   }
   getAlbums(artist: string){
+    this.isError = false;
     const urlAlbums = `${this.baseUrl}${artist}`;
-    this._artistsService.getAlbums(urlAlbums).subscribe(elem => this.albumList = elem);
+    this._artistsService.getAlbums(urlAlbums).subscribe(
+      data => this.albumList = data,
+      error => this.isError = true
+    );
   }
 
 }

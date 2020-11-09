@@ -1,5 +1,5 @@
 <div *ngIf="isArtist">
-    <div class="card border-light" *ngIf="artist$ | async as artist; else loading"> 
+    <div class="card border-light" *ngIf="artist$ | async as artist;"> 
         <div class="card-header text-light font-weight-bold">
             Artist information
         </div>
@@ -21,9 +21,8 @@
             </div>
         </div>
     </div>
-    <ng-template #loading>
-        <div class="card-header text-light font-weight-bold">
-            An error occurs
-        </div>
-    </ng-template>
+    
+    <div class="card-header text-light font-weight-bold" *ngIf="isError">
+        An error occurs
+    </div>
 </div>

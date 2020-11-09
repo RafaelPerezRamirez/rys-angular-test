@@ -1,8 +1,11 @@
-<div class="card-header text-light font-weight-bold">    
+<div class="card-header text-light font-weight-bold nav-bar">    
     <h3>{{artistName}}</h3> Albums
 </div>
 <div class="row">
     <div *ngFor="let album of albumList" class="col-md-3">
         <app-album [album]="album"></app-album>
     </div>
+</div>
+<div class="card-header text-light font-weight-bold error-bar" *ngIf="isError">
+    An error occurs
 </div>

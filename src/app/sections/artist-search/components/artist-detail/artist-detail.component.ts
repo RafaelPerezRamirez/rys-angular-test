@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { catchError } from 'rxjs/internal/operators/catchError';
 import { ArtistInformation } from 'src/app/models/artist-information';
 import { ArtistsService } from 'src/app/services/artists.service';
 
@@ -14,6 +16,7 @@ export class ArtistDetailComponent implements OnInit {
   }
   artist$: Observable<ArtistInformation>;
   isArtist:boolean = false;
+  isError:boolean = false;
   baseUrl:string = 'https://www.theaudiodb.com/api/v1/json/1/search.php?s=';
 
   constructor(private _artistsService: ArtistsService) { }
@@ -22,9 +25,15 @@ export class ArtistDetailComponent implements OnInit {
   }
 
   setArtist(artist){
+    this.isError = false;
     this.isArtist = true;
     const urlArtist = `${this.baseUrl}${artist}`;
-    this.artist$ = this._artistsService.getArtistInfo(urlArtist)
+    this.artist$ = this._artistsService.getArtistInfo(urlArtist).pipe(
+      catchError(err => {
+        this.isError = true;
+        return throwError(err);
+      })
+    )
   }
 
 }
