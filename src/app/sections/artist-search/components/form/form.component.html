@@ -9,26 +9,29 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Artist</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="artist"
-                                    placeholder="Type an artist"
-                                    formControlName="artist"
-                                />
-                                <span *ngIf="
-                                    this.formArtist.controls.artist.errors !== null &&
-                                    artist.invalid && artist.touched
-                                ">
-                                    Artist name is required example "coldplay"
-                                </span>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Artist</mat-label>
+                                    <input
+                                        matInput
+                                        type="text"
+                                        class="form-control"
+                                        name="artist"
+                                        placeholder="Type an artist"
+                                        formControlName="artist"
+                                    />
+                                    <mat-error *ngIf="
+                                        this.formArtist.controls.artist.errors !== null &&
+                                        artist.invalid && artist.touched
+                                    ">
+                                      Artist is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
                             </div>
                         </div>
                     </div>
                     <button
                         [disabled]="formArtist.invalid"
-                        class="btn btn-primary float-right col-md-2"
+                        class="btn float-right col-md-2"
                         (click)="searchArtist()"
                     >
                         Search

@@ -1,4 +1,8 @@
+@import '../../styles/colors';
 .row{
     width: 80%;
     margin: 0 auto;
+}
+.card-header{
+    background: $bg-gray;
 }

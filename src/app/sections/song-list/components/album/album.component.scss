@@ -1,5 +1,9 @@
+@import '../../../../styles/colors';
 :host::ng-deep{
     .mat-card-header-text {
         margin: initial;
+    }
+    .mat-card-title{
+        color: $title;
     }
 }

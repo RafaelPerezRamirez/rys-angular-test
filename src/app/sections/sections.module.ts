@@ -15,6 +15,9 @@ import { ArtistsService } from '../services/artists.service';
 //Material
 import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
 
 
 
@@ -28,11 +31,14 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     MatChipsModule,
     MatCardModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   exports: [
     ArtistSearchComponent, 
-    SongListComponent
+    SongListComponent,
   ],
   providers: [ArtistsService]
 })

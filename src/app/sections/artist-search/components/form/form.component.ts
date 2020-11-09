@@ -20,6 +20,7 @@ export class FormComponent implements OnInit {
 
   searchArtist = async () =>{
     this.change.emit(this.formArtist.get('artist').value);
+    this.formArtist.reset();
   }
 
   get artist(){

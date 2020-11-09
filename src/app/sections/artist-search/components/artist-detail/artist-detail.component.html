@@ -1,6 +1,6 @@
 <div *ngIf="isArtist">
     <div class="card border-light" *ngIf="artist$ | async as artist; else loading"> 
-        <div class="card-header bg-primary text-light font-weight-bold">
+        <div class="card-header text-light font-weight-bold">
             Artist information
         </div>
         <div class="card-body row">
@@ -9,7 +9,7 @@
                 <a [routerLink]="['/album-list', artist.strArtist]">
                     <mat-chip-list class="mat-chip-list-stacked">
                         <mat-chip>
-                            View albums
+                            <div class="text-chip">View albums</div>
                         </mat-chip>
                     </mat-chip-list>
                 </a>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <ng-template #loading>
-        <div class="card-header bg-primary text-light font-weight-bold">
+        <div class="card-header text-light font-weight-bold">
             An error occurs
         </div>
     </ng-template>
