@@ -6,6 +6,13 @@
         <div class="card-body row">
             <div class="col-md-6">
                 <img src="{{artist.strArtistFanart}}">
+                <a [routerLink]="['/album-list', artist.strArtist]">
+                    <mat-chip-list class="mat-chip-list-stacked">
+                        <mat-chip>
+                            View albums
+                        </mat-chip>
+                    </mat-chip-list>
+                </a>
             </div>
             <div class="col-md-6">
                 <span><h3>Name:</h3> {{artist.strArtist}}</span>
